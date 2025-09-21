@@ -1,15 +1,21 @@
-import Header from "./assets/components/Header"
+
 import HomePage from "./assets/pages/HomePage"
 import MovieDetailPage from "./assets/pages/MovieDetailPage"
 import DefaultLayout from "./assets/layout/DefaultLayout"
-import { BrowserRouter, Router, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 function App() {
 
 
   return (
     <>
-      <Header />
-      <HomePage />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<DefaultLayout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/:id" element={<MovieDetailPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
 
 
 
