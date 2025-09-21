@@ -6,7 +6,7 @@ const Header = () => {
       <div className="container-fluid bg-success">
         <div className="row">
           <div className="col-12">
-            <h2>header dell'app</h2>
+            <h2>Film Preferiti</h2>
           </div>
         </div>
       </div>

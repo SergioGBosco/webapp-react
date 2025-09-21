@@ -21,7 +21,7 @@ const HomePage = () => {
       <div className="row">
         {movies.map((movie) => {
           return (
-            <div className="col-6">
+            <div className="col-6" key={movie.id}>
               <div className="cardMovie">
                 <div className="card-img">
                   <img src={movie.image} alt={movie.title} />
