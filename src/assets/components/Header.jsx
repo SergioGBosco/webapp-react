@@ -1,19 +1,25 @@
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Header = () => {
   return (
     <header>
-      <div className="container-fluid bg-success">
+      <div className="container-fluid ">
         <div className="row">
-          <div className="col-12">
-            <div className="logo"></div>
-
-            <h2>Titolo Del mio sito di FIlms</h2>
+          <div className="col-12 d-flex justify-content-between align-items-center">
+            <div>
+              <img src="../../../public/imgs/logo.png" alt="Logo" className="logo" />
+            </div>
+            <div>
+              <h2>Pirated Movie</h2>
+            </div>
+            <div>
+              <Link to={"/"} className="btn btn-primary">Home</Link>
+            </div>
 
           </div>
         </div>
       </div>
-    </header>
+    </header >
   )
 }
 
