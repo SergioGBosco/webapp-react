@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { replace, useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
 
@@ -13,7 +13,9 @@ const MovieDetailPage = () => {
   const fenchMovie = () => {
     axios.get(`http://localhost:3000/movies/${id}`).then(resp => {
       setMovieDetail(resp.data)
-    }).catch((err) => navigate("/not_found"));
+    }).catch(() => {
+      navigate("not_found", { replace: true })
+    });
   }
 
   useEffect(fenchMovie, [id])
