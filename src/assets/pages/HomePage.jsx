@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-
+import { Link } from "react-router-dom";
 const HomePage = () => {
 
   const [movies, setMovies] = useState([]);
@@ -9,7 +9,6 @@ const HomePage = () => {
     axios.get("http://localhost:3000/movies")
       .then((resp) => {
         setMovies(resp.data);
-        console.log(resp.data)
       })
       .catch((err) => (console.log(err)))
   };
@@ -22,18 +21,20 @@ const HomePage = () => {
         {movies.map((movie) => {
           return (
             <div className="col-6" key={movie.id}>
+
               <div className="cardMovie">
-                <div className="card-img">
-                  <img src={movie.image} alt={movie.title} />
-                </div>
-                <div className="card-description">
-                  <h2>{movie.title}</h2>
-                  <span>{movie.genre}</span>
-                  <span>{movie.director + " " + movie.release_year}</span>
-                  <p>{movie.abstract}</p>
+                <Link to={`/${movie.id}`}>
+                  <div className="card-img">
+                    <img src={movie.image} alt={movie.title} />
+                  </div>
+                  <div className="card-description">
+                    <h2>{movie.title}</h2>
+                    <span>{movie.genre}</span>
+                    <span>{movie.director + " " + movie.release_year}</span>
+                    <p>{movie.abstract}</p>
 
-                </div>
-
+                  </div>
+                </Link>
               </div>
             </div>
           )
