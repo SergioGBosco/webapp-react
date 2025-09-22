@@ -13,7 +13,7 @@ const HomePage = () => {
       .catch((err) => (console.log(err)))
   };
 
-  useEffect(movieList, [])
+  useEffect(movieList, []);
 
   return (
     <div className="container">
@@ -23,7 +23,7 @@ const HomePage = () => {
             <div className="col-4" key={movie.id}>
 
               <div className="cardMovie">
-                <Link to={`/${movie.id}`}>
+                <Link to={`/movies/${movie.id}`}>
                   <div className="card-img">
                     <img src={movie.image} alt={movie.title} />
                   </div>

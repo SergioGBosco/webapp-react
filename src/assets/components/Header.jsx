@@ -7,7 +7,7 @@ const Header = () => {
         <div className="row">
           <div className="col-12 d-flex justify-content-between align-items-center">
             <div>
-              <img src="../../../public/imgs/logo.png" alt="Logo" className="logo" />
+              <img src="../../imgs/logo.png" alt="Logo" className="logo" />
             </div>
             <div>
               <h2>Pirated Movie</h2>

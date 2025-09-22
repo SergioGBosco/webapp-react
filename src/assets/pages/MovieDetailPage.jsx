@@ -14,7 +14,7 @@ const MovieDetailPage = () => {
     axios.get(`http://localhost:3000/movies/${id}`).then(resp => {
       setMovieDetail(resp.data)
     }).catch(() => {
-      navigate("not_found", { replace: true })
+      navigate(`/not_found`, { replace: true });
     });
   }
 
@@ -39,7 +39,7 @@ const MovieDetailPage = () => {
             {movieDetail.reviews ? (movieDetail.reviews.map((review) => {
               return (
                 <div className="review_card">
-                  <h2>{review.name}</h2>
+                  <h2>{review.name}</h2>s
                   <span>{review.vote}</span>
                   <p>{review.text}</p>
                 </div>
@@ -51,8 +51,8 @@ const MovieDetailPage = () => {
             }
           </div>
           <div className="d-flex m-4 justify-content-around">
-            <button className="btn btn-primary" onClick={() => navigate(`/${parseInt(id) - 1}`)}> torna alla pagina precedente </button>
-            <button className="btn btn-success" onClick={() => navigate(`/${parseInt(id) + 1}`)}> Vai alla pagina Successiva </button>
+            <button className="btn btn-primary" onClick={() => navigate(`/movies/${parseInt(id) - 1}`)}> torna alla pagina precedente </button>
+            <button className="btn btn-success" onClick={() => navigate(`/movies/${parseInt(id) + 1}`)}> Vai alla pagina Successiva </button>
           </div>
         </div>
       </div>
