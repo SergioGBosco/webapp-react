@@ -1,4 +1,4 @@
-import React from 'react'
+import { NavLink } from "react-router-dom"
 
 const Header = () => {
   return (
@@ -6,7 +6,10 @@ const Header = () => {
       <div className="container-fluid bg-success">
         <div className="row">
           <div className="col-12">
-            <h2>Film Preferiti</h2>
+            <div className="logo"></div>
+
+            <h2>Titolo Del mio sito di FIlms</h2>
+
           </div>
         </div>
       </div>

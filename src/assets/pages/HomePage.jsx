@@ -20,7 +20,7 @@ const HomePage = () => {
       <div className="row">
         {movies.map((movie) => {
           return (
-            <div className="col-6" key={movie.id}>
+            <div className="col-4" key={movie.id}>
 
               <div className="cardMovie">
                 <Link to={`/${movie.id}`}>
