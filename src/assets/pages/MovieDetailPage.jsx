@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { replace, useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
-
+import NewReview from "../components/NewReview"
 const MovieDetailPage = () => {
   const { id } = useParams();
   const [movieDetail, setMovieDetail] = useState({});
@@ -37,8 +37,8 @@ const MovieDetailPage = () => {
           <div className="reviews">
             {movieDetail.reviews ? (movieDetail.reviews.map((review) => {
               return (
-                <div className="review_card" key={review.id}>
-                  <h2>{review.name}</h2>s
+                <div className="review_card" key={review.id} >
+                  <h2>{review.name}</h2>
                   <span>{review.vote}</span>
                   <p>{review.text}</p>
                 </div>
@@ -47,8 +47,12 @@ const MovieDetailPage = () => {
             ) : (
               <h2>Nessuna Recensione da visualizzare</h2>
             )
-
             }
+            <div>
+
+              {/* Inserisco la funzione che mi permette di richiamare la funzione  */}
+              <NewReview movieId={id} reloadReviews={fenchMovie} />
+            </div>
           </div>
           <div className="d-flex m-4 justify-content-around">
             <button className="btn btn-primary" onClick={() => navigate(`/movies/${parseInt(id) - 1}`)}> torna alla pagina precedente </button>
