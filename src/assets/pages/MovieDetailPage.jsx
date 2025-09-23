@@ -3,7 +3,6 @@ import { useState, useEffect } from "react"
 import { replace, useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
-
 const MovieDetailPage = () => {
   const { id } = useParams();
   const [movieDetail, setMovieDetail] = useState({});
@@ -38,7 +37,7 @@ const MovieDetailPage = () => {
           <div className="reviews">
             {movieDetail.reviews ? (movieDetail.reviews.map((review) => {
               return (
-                <div className="review_card">
+                <div className="review_card" key={review.id}>
                   <h2>{review.name}</h2>s
                   <span>{review.vote}</span>
                   <p>{review.text}</p>
@@ -48,6 +47,7 @@ const MovieDetailPage = () => {
             ) : (
               <h2>Nessuna Recensione da visualizzare</h2>
             )
+
             }
           </div>
           <div className="d-flex m-4 justify-content-around">
