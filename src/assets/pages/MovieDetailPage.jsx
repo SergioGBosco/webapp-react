@@ -1,17 +1,22 @@
 import axios from "axios"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { replace, useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import NewReview from "../components/NewReview"
+import GlobalContext from "../../contexts/globalContext"
 const MovieDetailPage = () => {
   const { id } = useParams();
   const [movieDetail, setMovieDetail] = useState({});
 
+  const { setIsLoading } = useContext(GlobalContext)
+
   const navigate = useNavigate();
 
   const fenchMovie = () => {
+    setIsLoading(true)
     axios.get(`http://localhost:3000/movies/${id}`).then(resp => {
       setMovieDetail(resp.data)
+      setIsLoading(false)
     }).catch(() => {
       navigate(`/not_found`, { replace: true });
     });
