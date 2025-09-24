@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
+import Loader from "../components/Loader";
 const HomePage = () => {
 
   const [movies, setMovies] = useState([]);
@@ -17,6 +18,7 @@ const HomePage = () => {
 
   return (
     <div className="container">
+      <Loader />
       <div className="row">
         {movies.map((movie) => {
           return (
